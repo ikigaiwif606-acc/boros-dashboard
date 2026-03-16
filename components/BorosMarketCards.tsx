@@ -61,7 +61,7 @@ function MarketCard({ market, underlyingAPR }: { market: BorosMarket; underlying
       <p className={`mb-4 text-xs ${sentimentColor}`}>{sentiment}</p>
 
       <a
-        href={`https://boros.pendle.finance/trade?ref=TALKCHAIN`}
+        href="https://boros.pendle.finance/markets"
         target="_blank"
         rel="noopener noreferrer"
         className="block rounded-lg bg-teal-500/20 py-2 text-center text-sm font-medium text-teal-400 transition-colors hover:bg-teal-500/30"

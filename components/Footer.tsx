@@ -12,7 +12,7 @@ export default function Footer() {
           <div className="text-sm text-gray-500">
             {t('poweredBy')}{' '}
             <a
-              href="https://boros.pendle.finance/?ref=TALKCHAIN"
+              href="https://boros.pendle.finance/markets"
               target="_blank"
               rel="noopener noreferrer"
               className="text-teal-400 hover:text-teal-300"
@@ -22,7 +22,7 @@ export default function Footer() {
           </div>
           <div className="flex gap-4">
             <a
-              href="https://boros.pendle.finance/?ref=TALKCHAIN"
+              href="https://boros.pendle.finance/markets"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-gray-500 transition-colors hover:text-teal-400"
