@@ -46,6 +46,9 @@ export async function GET() {
         (m.imData.maturity * 1000 - Date.now()) / 86400000
       );
 
+      // Boros API returns APR as decimals (0.019 = 1.9%), convert to percentage
+      const toPercent = (v: number | null | undefined) => v != null ? v * 100 : null;
+
       return {
         id: m.marketId,
         name: `${m.metadata.assetSymbol}USDT-${m.metadata.platformName}`,
@@ -54,13 +57,13 @@ export async function GET() {
         platformName: m.metadata.platformName,
         maturity: m.imData.maturity * 1000,
         daysToMaturity: Math.max(0, daysToMaturity),
-        impliedAPR: m.data.midApr != null ? m.data.midApr : null,
-        midAPR: m.data.midApr,
-        floatingAPR: m.data.floatingApr,
-        markAPR: m.data.markApr,
-        lastTradedAPR: m.data.lastTradedApr,
-        bestBid: m.data.bestBid,
-        bestAsk: m.data.bestAsk,
+        impliedAPR: toPercent(m.data.midApr),
+        midAPR: toPercent(m.data.midApr),
+        floatingAPR: toPercent(m.data.floatingApr),
+        markAPR: toPercent(m.data.markApr),
+        lastTradedAPR: toPercent(m.data.lastTradedApr),
+        bestBid: toPercent(m.data.bestBid),
+        bestAsk: toPercent(m.data.bestAsk),
         volume24h: m.data.volume24h,
         nextSettlementTime: m.data.nextSettlementTime,
         status: m.state,
